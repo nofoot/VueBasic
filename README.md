@@ -2,7 +2,7 @@
 Vue.js study 참고자료 <br>
 Captain Pangyo님 강의 참고<br>
 https://joshua1988.github.io/
-Vue.js 가이드
+Vue.js 가이드<br>
 https://kr.vuejs.org/v2/guide/
 ## 1. IDE 
   - Visual Studio Code (https://code.visualstudio.com/)
