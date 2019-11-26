@@ -1,9 +1,9 @@
 # VueBasic
 Vue.js study 참고자료 <br>
 Captain Pangyo님 강의 참고<br>
-https://joshua1988.github.io/
+https://joshua1988.github.io/<br>
 Vue.js 가이드<br>
-https://kr.vuejs.org/v2/guide/
+https://kr.vuejs.org/v2/guide/<br>
 ## 1. IDE 
   - Visual Studio Code (https://code.visualstudio.com/)
 ## 2. IDE Plug-ins
