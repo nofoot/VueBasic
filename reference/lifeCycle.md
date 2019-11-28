@@ -1,12 +1,13 @@
-#Life cycle of vue instance
+# Life cycle of vue instance
 
-Vue의 라이프 사이클은 크게 아래처럼 나눌 수 있다.
+## Vue의 라이프 사이클은 크게 아래처럼 나눌 수 있다.
 
-라이프 사이클 훅(LifeCycle hooks)은 Vue 오브젝트 전체 라이프사이클의 
-특정 단계에서 실행되는 정의된 메소드 입니다.
+*라이프 사이클 훅(LifeCycle hooks)은 Vue 오브젝트 전체 라이프사이클의 
+특정 단계에서 실행되는 정의된 메소드 입니다.*
 
-Creation -> Mounting -> Updating -> Destruction  
+##Creation -> Mounting -> Updating -> Destruction  <br>
 
+<p>
 1) Creation : (beforeCreate Created)
     - 이 단계에서 실행되는 훅들이 라이프 사이클 과정에서 가장 처음으로 실행된다
     - 이 단계는 컴포넌트가 DOM에 추가되기 전이다.
@@ -20,7 +21,9 @@ Creation -> Mounting -> Updating -> Destruction
     1-2) create
         - data와 events가 활성화 되어 접근 가능
         - 여전히 템플릿과 가상돔은 마운트 및 렌더링되지 않은 상태
-
+</p>
+<br></br>
+<p>
 2) Mounting : DOM 삽입 단계 (beforeMount, mounted)
     - 초기 렌더링 직전에 컴포넌트에 직접 접근할 수 있다.
     - 서버 렌더링에서는 지원하지 않는다.
@@ -37,7 +40,9 @@ Creation -> Mounting -> Updating -> Destruction
         - 모든 하위 Component가 마운트 된 상태를 보장하지는 않는다.
         - 서버렌더링에서는 호출되지 않는다 
         - 부모와 자식관계의 컴포넌트에서는 자식의 mount가 먼저 발생된다.
-
+</p>
+<br><br>
+<p>
 3) Updating : Diff 및 재 렌더링 단계 (beforeUpdate, update)
     - 컴포넌트에서 사용되는 반응형 속성들이 변경되거나 재 렌더링되면 발생된다.
     - 서버렌더링에서는 호출되지 않는다.
@@ -53,7 +58,9 @@ Creation -> Mounting -> Updating -> Destruction
         - DOM이 업데이트 완료된 상태이기 때문에 DOM의 종속적인 연산을 할수 있다.
         - 여기서 updated 훅이 실행될 변경이 있는 경우 무한루프에 빠질수 있다.
         - 모든 자식 컴포넌트의 렌더링 상태를 보장하지 않는다.
-
+</p>
+<br><br>
+<p>
 4) Destruction : 해체단계(beforeDestroy, destroyed)
    
     4-1) beforeDestroy
@@ -66,7 +73,7 @@ Creation -> Mounting -> Updating -> Destruction
         - Vue 인스턴스의 모든 디렉티브가 바인딩 해제 되고 모든 이벤트 리스너가 제거된다
         - 모든 하위 Vue 인스턴스도 삭제된다.
         - 서버 렌더링시 호출되지 않는다.
-
+</p>
 
 
 
