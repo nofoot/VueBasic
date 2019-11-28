@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id ='app'>
+        {{a}}
+
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    var vueInstance = new Vue({
+
+        el : '#app',
+        data : {
+            a : 1
+        },
+
+        methods : {
+            call : function(){
+                console.log("call Method");
+            }
+        },
+
+        beforeCreate : function(){
+            console.log("beforeCreate " + new Date().getTime());
+            console.log("beforeCreate this.$el " , this.$el);
+            console.log("beforeCreate this.data " + this.a);
+            
+            /**
+            Vue 인스턴스가 초기화 된 직후에 발생 
+            컴포넌트가 DOM에 추가되기조 전이기 때문에 
+            this.$el에 접근 할수 없음 
+            실제 해당 객체를 확인해보면 undefined 타입  
+            **/
+        },
+
+        created : function(){
+            console.log("created " + new Date().getTime());
+            console.log("created this.$el " , this.$el);
+            console.log("created this.data " + this.a);
+            /**
+            data를 반응형으로 추적할 수 있게 되며 
+            'computed', 'methods', 'watch'등이 활성화 되어 
+            접근이 가능하게 됨
+            하지만 DOM에는 추가 되지 않은  상태  
+            **/
+            
+        },
+
+        beforeMount : function(){
+            console.log("beforeMount "  + new Date().getTime());
+            console.log("beforeMount this.$el " , this.$el);
+            console.log("beforeMount this.data " + this.a);
+            /**
+            DOM에 mount 직전 호출됨
+            이 단계 전에서 템플릿이 있는지 없는지 확인한 후 
+            템플릿을 렌더링 한 상태이기 때문에
+            가상 DOM이 생성되어 있으나 실제 DOM에 부착되지 않은 상태
+            **/
+            
+        },
+
+        mounted : function(){
+            this.$nextTick(function(){
+                console.error("$nextTick을 이용하여 렌더링 된 이후에 실행되는 코드 " + new Date().getTime());
+                console.error("해당 코드는 실제 mounted 내 가장 먼저 선언되어 있음");
+                /**
+                **/
+            });
+            console.log("mounted " + new Date().getTime());
+            console.log("mounted this.$el " , this.$el);
+            console.log("mounted this.data " + this.a);
+            
+            /**
+            가상 DOM의 내용이 실제 DOM에 mount 되고 난 이후 실행
+            this.$el을 비롯한 'data', 'computed', 'methods', 'watch'등
+            모든 요소에 접근이 가능함
+            **/
+            
+        },
+
+        beforeUpdate : function(){
+            console.log("beforeUpdate " + new Date().getTime());
+            console.log("beforeUpdate this.$el " , this.$el);
+            console.log("beforeUpdate this.data " + this.a);
+            /**
+            컴포넌트에서 사용되는 data의 값이 변해서, 
+            Dom에도 그 변화를 적용시켜야 할때 변화 직전에 호출
+            변할 값을 이용해 가상 DOM을 렌더링 하기 전이지만,
+            이 값을 이용해 작업 할 수 있다.
+            값들을 추가적으로 변화 시키더라도 렌더링을 추가로 호출하지는 않음
+            렌더링이 필요할 경우에 호출된다.
+            단순히 값을 변경시에는 호출되지 않음
+            **/
+            
+        },
+
+        updated : function(){
+            this.$nextTick(function(){
+                console.error("$nextTick을 이용하여 렌더링 된 이후에 실행되는 코드 " + new Date().getTime());
+                console.error("해당 코드는 실제 updated 내 가장 먼저 선언되어 있음");
+                /**
+                **/
+            });
+            console.log("updated " + new Date().getTime());
+            console.log("updated this.$el " , this.$el);
+            console.log("updated this.data " + this.a);
+            /**
+            가상 DOM을 렌더링 하고 실제 DOM이 변경된 이후에 호출됨
+            변경된 'data'가 DOM에도 적용된 상태
+            변경된 값을들 DOM을 이용해 접근하고 싶은 경우 update훅이 적절하다
+            다만 'data'를 변경하는 것은 무한루프를 일으킬 수 있기때문에
+            이 훅에서는 데이터를 바꿔서는 안된다.
+            **/
+            
+        },
+
+        beforeDestroy : function(){
+            console.log("beforeDestroy " + new Date().getTime());
+            console.log("beforeDestroy this.$el " , this.$el);
+            console.log("beforeDestroy this.data " + this.a);
+            /**
+            해당 인스턴스가 해체되기 직전 호출 됨
+            아직 해체되기 전이기 때문에, 인스턴스는 완전하게 작동
+            모든 속성에 접근이 가능
+            이 단계에서는 이벤트 리스너를 해제하는 등 
+            인스턴스가 사라지기 전에 해야할 일들을 처리 
+            **/
+            
+        },
+
+        destroyed : function(){
+            console.log("destroyed " + new Date().getTime());
+            console.log("destroyed this.$el " , this.$el);
+            console.log("destroyed this.data " + this.a);
+            /**
+            인스턴스가 해체되고 난 직후 호출 
+            해체가 끝난 이후이기 때문에 
+            인스턴스의 속성에 접근할 수 없음
+            하위 Vue 인스턴스 삭제 됨
+            **/
+            
+        }
+    });
+</script>
+
+</body>
+</html>
