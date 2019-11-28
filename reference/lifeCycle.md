@@ -24,7 +24,7 @@
 </p>
 <br></br>
 <p>
-<br>2) Mounting : </br>DOM 삽입 단계 (beforeMount, mounted) <br>
+<b>2) Mounting : </b>DOM 삽입 단계 (beforeMount, mounted) <br>
     - 초기 렌더링 직전에 컴포넌트에 직접 접근할 수 있다.
     - 서버 렌더링에서는 지원하지 않는다.
     - 초기 렌더링 직전에 DOM을 변경하고자 한다면 이 단계를 활용할 수 있다.
