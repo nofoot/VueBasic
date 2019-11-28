@@ -8,7 +8,7 @@
 ##Creation -> Mounting -> Updating -> Destruction  <br>
 
 <p>
-1) Creation : (beforeCreate Created)
+##1) Creation : (beforeCreate Created)
     - 이 단계에서 실행되는 훅들이 라이프 사이클 과정에서 가장 처음으로 실행된다
     - 이 단계는 컴포넌트가 DOM에 추가되기 전이다.
     - 서버 렌더링에서도 지원되는 훅
@@ -24,7 +24,7 @@
 </p>
 <br></br>
 <p>
-2) Mounting : DOM 삽입 단계 (beforeMount, mounted)
+##2) Mounting : DOM 삽입 단계 (beforeMount, mounted)
     - 초기 렌더링 직전에 컴포넌트에 직접 접근할 수 있다.
     - 서버 렌더링에서는 지원하지 않는다.
     - 초기 렌더링 직전에 DOM을 변경하고자 한다면 이 단계를 활용할 수 있다.
@@ -43,7 +43,7 @@
 </p>
 <br><br>
 <p>
-3) Updating : Diff 및 재 렌더링 단계 (beforeUpdate, update)
+##3) Updating : Diff 및 재 렌더링 단계 (beforeUpdate, update)
     - 컴포넌트에서 사용되는 반응형 속성들이 변경되거나 재 렌더링되면 발생된다.
     - 서버렌더링에서는 호출되지 않는다.
     
@@ -61,7 +61,7 @@
 </p>
 <br><br>
 <p>
-4) Destruction : 해체단계(beforeDestroy, destroyed)
+##4) Destruction : 해체단계(beforeDestroy, destroyed)
    
     4-1) beforeDestroy
         - 해체(뷰인스턴스 제거)되기 전에 호출된다.
